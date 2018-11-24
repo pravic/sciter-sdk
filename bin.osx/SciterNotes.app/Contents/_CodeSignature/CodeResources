@@ -6,27 +6,36 @@
 	<dict>
 		<key>Resources/AppIcon.icns</key>
 		<data>
-		LHUZJ/G+GH2hN7m3lhFAwUMThiw=
+		jWrPT5TvFFPyRXXHFzrF7dEKhZY=
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		7O1kIWnc79e15hwwMbWL80aAQVA=
+		TqJ6RCIq9Ik3Lzy2jI3igGIOUa8=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>MacOS/sciter-osx-64.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			G5tCX0nU96RtJYJRRIFKQ5niODk=
+			</data>
+			<key>requirement</key>
+			<string>anchor apple generic and identifier "sciter-osx-64" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "642T6M376L")</string>
+		</dict>
 		<key>Resources/AppIcon.icns</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RMdxXQsME7C4EfhkJzzT5kLKHf+yPKVXcaK2yG53NaY=
+			o1LnZEjWxkrpJQxoOsDNPOkG+dSXUgSLpMVga3ByQmg=
 			</data>
 		</dict>
 		<key>Resources/Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vhWpgg58zuRmFNsgyiuOOEA95KfZsr+WAszNfwQIx38=
+			teSIb8T8t5ru5mcu+m84G0wtVnnO71adATCco1VJqIo=
 			</data>
 		</dict>
 	</dict>

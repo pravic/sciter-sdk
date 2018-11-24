@@ -6,18 +6,20 @@
 // native API 
 
 #if 0
-static sciter::value native_api() {
+static sciter::value libcurl_api() {
 
   sciter::value api_map;
-  sciter::value api_math_map;
+
+/*  sciter::value api_math_map;
 
   std::function<int(int,int)> native_sum = [](int a, int b) { return a + b; };
   std::function<int(int,int)> native_sub = [](int a, int b) { return a - b; };
 
   api_math_map.set_item(sciter::value("sum"), sciter::vfunc( native_sum ));
   api_math_map.set_item(sciter::value("sub"), sciter::vfunc( native_sub ));
-
-  api_map.set_item(sciter::value("math"), api_math_map);
+  */
+  
+  //api_map.set_item(sciter::value("math"), api_math_map);
 
   /*
     return {
@@ -37,7 +39,7 @@ class frame: public sciter::window
   UINT hk_ticks = 0; // hot key ticks used to detect CTRL+C->C sequence
 public:
 
-  frame(bool needs_debugger) : window(SW_TITLEBAR | SW_RESIZEABLE | SW_CONTROLS | SW_MAIN | (needs_debugger ? SW_ENABLE_DEBUG:0)) 
+  frame(bool needs_debugger) : window(SW_TITLEBAR | SW_RESIZEABLE | SW_CONTROLS | SW_GLASSY | SW_MAIN | (needs_debugger ? SW_ENABLE_DEBUG:0)) 
   {
     //register_hotkey();
   }
@@ -91,6 +93,12 @@ public:
 #include "resources.cpp"
 
 int uimain(std::function<int()> run ) {
+
+  SciterSetOption(NULL, SCITER_SET_SCRIPT_RUNTIME_FEATURES,
+    ALLOW_FILE_IO |
+    ALLOW_SOCKET_IO |
+    ALLOW_EVAL |
+    ALLOW_SYSINFO);
 
   sciter::archive::instance().open(aux::elements_of(resources)); // bind resources[] (defined in "resources.cpp") with the archive
 

@@ -1,6 +1,7 @@
 
 const APP_NAME = "usciter.app";
 include "settings.tis";
+include "drop-zone.tis";
 
 const native = view.nativeApi();
 
@@ -136,9 +137,17 @@ Settings.add
 
 event click $(button#help)
 {
+  var path = System.home("../doc/main.htm");
+  if(!System.scanFiles(path))
+    path = System.home("../../doc/main.htm");
+  if(!System.scanFiles(path)) {
+    view.msgbox(#alert, path + " not found");
+    return true;
+  }
+
   view.window 
   {
-    url: "file://" + System.home("../../doc/main.htm"),
+    url: URL.fromPath(path),
     type: View.FRAME_WINDOW,
     state: View.WINDOW_SHOWN,
     alignment:5,
@@ -147,6 +156,14 @@ event click $(button#help)
   };
 }
 
+DropZone.call(content,"*.htm;*.html;*.xhtml;*.svg"); 
+
+event file-drop (evt) {
+  loadFile(evt.data[0]);
+  return true;
+}
+
+/*
 function content.onExchange(evt)
 {
    if( evt.type == Event.X_DRAG_ENTER && evt.draggingDataType == #file)
@@ -174,7 +191,9 @@ function content.onExchange(evt)
      loadFile(fn);
      return true;
    }
-}
+}*/
+
+
 
 event click $(button#inspector)
 {
